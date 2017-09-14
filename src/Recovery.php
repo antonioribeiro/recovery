@@ -19,8 +19,12 @@ class Recovery
      *
      * @param Random $random
      */
-    public function __construct(Random $random)
+    public function __construct(Random $random = null)
     {
+        if (is_null($random)) {
+            $random = new Random();
+        }
+
         $this->random = $random;
     }
 
@@ -29,7 +33,7 @@ class Recovery
      *
      * @return array
      */
-    private function generate()
+    protected function generate()
     {
         $this->reset();
 
@@ -45,7 +49,7 @@ class Recovery
      *
      * @return array
      */
-    private function generateBlocks()
+    protected function generateBlocks()
     {
         $blocks = [];
 
@@ -61,7 +65,7 @@ class Recovery
      *
      * @return string
      */
-    private function generateChars()
+    protected function generateChars()
     {
         return $this->random->str($this->getChars());
     }
@@ -71,7 +75,7 @@ class Recovery
      *
      * @return bool
      */
-    private function mustGenerate()
+    protected function mustGenerate()
     {
         return count($this->codes) == 0;
     }
@@ -206,7 +210,7 @@ class Recovery
      * Reset generated codes.
      *
      */
-    private function reset()
+    protected function reset()
     {
         $this->codes = [];
     }
