@@ -12,8 +12,6 @@ class Recovery
 
     protected $chars = 10;
 
-    protected $lowercase = true;
-
     protected $random;
 
     /**
@@ -45,6 +43,7 @@ class Recovery
     /**
      * Generate all blocks.
      *
+     * @return array
      */
     private function generateBlocks()
     {
@@ -64,17 +63,7 @@ class Recovery
      */
     private function generateChars()
     {
-        return $this->random->str($this->getChars(), $this->getLowercase());
-    }
-
-    /**
-     * Get lowercase codes state.
-     *
-     * @return bool
-     */
-    public function getLowercase()
-    {
-        return $this->lowercase;
+        return $this->random->str($this->getChars());
     }
 
     /**
@@ -90,12 +79,61 @@ class Recovery
     /**
      * Set lowercase codes state.
      *
-     * @param bool $lowercase
+     * @param bool $state
      * @return Recovery
      */
-    public function setLowercase($lowercase)
+    public function lowercase($state = true)
     {
-        $this->lowercase = $lowercase;
+        $this->random->lowercase($state);
+
+        return $this;
+    }
+
+    /**
+     * Set uppercase codes state.
+     *
+     * @param bool $state
+     * @return Recovery
+     */
+    public function uppercase($state = true)
+    {
+        $this->random->uppercase($state);
+
+        return $this;
+    }
+
+    /**
+     * Set mixedcase codes state.
+     *
+     * @return Recovery
+     */
+    public function mixedcase()
+    {
+        $this->random->mixedcase();
+
+        return $this;
+    }
+
+    /**
+     * Set to numeric codes.
+     *
+     * @return Recovery
+     */
+    public function numeric()
+    {
+        $this->random->numeric();
+
+        return $this;
+    }
+
+    /**
+     * Set to alpha codes.
+     *
+     * @return Recovery
+     */
+    public function alpha()
+    {
+        $this->random->alpha();
 
         return $this;
     }
