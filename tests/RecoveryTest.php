@@ -9,6 +9,17 @@ class RecoveryTest extends \PHPUnit\Framework\TestCase
         $this->recovery = new Recovery(new Random());
     }
 
+    public function testInstantiation()
+    {
+        $recovery = new Recovery(new Random());
+
+        $this->assertTrue(is_array($recovery->toArray()));
+
+        $recovery = new Recovery();
+
+        $this->assertTrue(is_array($recovery->toArray()));
+    }
+
     public function testGenerateArray()
     {
         $this->assertTrue(is_array($this->recovery->toArray()));
