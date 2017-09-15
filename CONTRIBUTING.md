@@ -2,8 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/pragmarx/recovery).
-
+We accept contributions via Pull Requests on [Github](https://github.com/antonioribeiro/recovery).
 
 ## Pull Requests
 
@@ -25,8 +24,8 @@ We accept contributions via Pull Requests on [Github](https://github.com/pragmar
 ## Running Tests
 
 ``` bash
-$ composer test
+$ composer update
+$ vendor/bin/phpunit
 ```
-
 
 **Happy coding**!

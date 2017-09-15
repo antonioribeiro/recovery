@@ -1,29 +1,13 @@
 # recovery
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Latest Stable Version](https://img.shields.io/packagist/v/pragmarx/recovery.svg?style=flat-square)](https://packagist.org/packages/pragmarx/recovery)
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
-[![Total Downloads][ico-downloads]][link-downloads]
+[![Build Status](https://scrutinizer-ci.com/g/antonioribeiro/recovery/badges/build.png?b=master)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/antonioribeiro/recovery/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/antonioribeiro/recovery/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/?branch=master)
+[![StyleCI](https://styleci.io/repos/103568219/shield)](https://styleci.io/repos/103568219)
 
-**Note:** Replace ```Antonio Carlos Ribeiro``` ```antonioribeiro``` ```https://antoniocarlosribeiro.com``` ```acr@antoniocarlosribeiro.com``` ```pragmarx``` ```recovery``` ```Create recovery codes for two factor auth``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
-## Structure
-
-If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
-
-```
-bin/        
-config/
-src/
-tests/
-vendor/
-```
-
+Generate recovery/backup codes to provide a way for your users to recover lost accounts.
 
 ## Install
 
@@ -35,9 +19,77 @@ $ composer require pragmarx/recovery
 
 ## Usage
 
+#### Basic array usage
+
 ``` php
-$skeleton = new PragmaRX\Recovery();
-echo $skeleton->echoPhrase('Hello, League!');
+$this->recovery = new PragmaRX\Recovery();
+
+$this->recovery->toArray();
+```
+
+#### Json result
+
+``` php
+$this->recovery->toJson();
+```
+
+Should give you 
+
+``` json
+[  
+   "C0r2Xp4o1v-oG3pteKXw3",
+   "oLuSmVeJ7D-t4wnJVwkuC",
+   "XdPXXJy3J6-Gl3d0EwWt7",
+   "Bn8twjUJRt-Lv3KaAFwjR",
+   "SrnMagyGRg-eC7WPyFQ17",
+   "mRO4WPJpRN-hgfrUZqqZd",
+   "xBZtyFOrJZ-Tbpg0pSvzf",
+   "eiPFmwvJp0-oSqdNKclDH"
+]
+```
+
+#### Changing the result values/sizes
+
+``` php
+$this->recovery
+     ->setCount(8)     // Generate 8 codes
+     ->setBlocks(7)    // Every code must have 7 blocks
+     ->setChars(16)    // Each block must have 16 chars
+     ->toArray();
+```
+
+#### Numeric or alpha?
+
+``` php
+$this->recovery
+     ->numeric()       // Generate numeric only codes
+     ->toArray();
+     
+$this->recovery
+     ->alpha()        // Get back to default alpha generation
+     ->toArray();
+```
+
+#### Upper, lower and mixed case
+
+``` php
+$this->recovery
+     ->lowercase()    // All lower
+     ->toArray();
+     
+$this->recovery
+     ->uppercase()    // All lower
+     ->toArray();
+     
+$this->recovery
+     ->mixedcase()    // Get back to default mixed case
+     ->toArray();
+```
+
+#### Block separator
+
+``` php
+$this->recovery->setBlockSeparator('|')->toJson();
 ```
 
 ## Change log
@@ -47,12 +99,13 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Testing
 
 ``` bash
-$ composer test
+$ composer update
+$ vendor/bin/phpunit
 ```
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
@@ -61,7 +114,6 @@ If you discover any security related issues, please email acr@antoniocarlosribei
 ## Credits
 
 - [Antonio Carlos Ribeiro][link-author]
-- [All Contributors][link-contributors]
 
 ## License
 
