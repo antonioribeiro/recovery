@@ -1,4 +1,4 @@
-# recovery
+# Recovery
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/pragmarx/recovery.svg?style=flat-square)](https://packagist.org/packages/pragmarx/recovery)
 [![Software License][ico-license]](LICENSE.md)
@@ -7,7 +7,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/antonioribeiro/recovery/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/?branch=master)
 [![StyleCI](https://styleci.io/repos/103568219/shield)](https://styleci.io/repos/103568219)
 
-Generate recovery/backup codes to provide a way for your users to recover lost accounts.
+Generate recovery/backup codes to provide a way for your users to recover from a lost two factor auth, or any problem with it.
 
 ## Install
 
@@ -62,9 +62,13 @@ Should give you
 
 ``` json
 [  
-   "Tu0rFHft8072e6Ev-99TJxD5Zy5q2sv1y-J0W3JnXAFUo1RPz9-8V88cmaKJOHYgXoD-V2H1xISB8nxeX6Pi",
-   "CSB4d6p6dt4Kg5e8-1evc13EWMek37tVK-jk1KodSlcV19Fm7w-TsztesVXRBCa2mRy-5OVY7wGZPx4MZZTD",
-   "Jensx9TXkiVuG2Kl-XeMnFEDtlRmlDDyz-yHOoTrGgy3ADnqTX-cjh31XYg1I6OQ93f-joXh6vAkKGZCixYY"
+   "0ldZb4vhamHEd8B3-Tmri54Lb0t52wefR-gbJaHTN44O9C1igf-HRdF185SXxDwcdRf",
+   "sFyrtezhjbFhCube-MszCKzvdsNL7QEY1-IY5OtpsFqM5d7jA7-t2mjCViRMHcMDdNZ",
+   "bjKMlcsPhNrpFpSN-IbJR2ebOeXCxXVVb-omZLu3Ki9ImIEqZh-1sK74zOADl86GGRs",
+   "wpa23eFj8PJcPdMG-E8A4LCwmd8iF8jt4-bVi2ltUEv29zoPJJ-pSetq2GD6euvZ9RA",
+   "EJ3SRDQlddr2e2hT-eF79n1lqndwhRM7G-HrjHEVyA9zHSLi8g-TrHzl5oaqPi1NgCT",
+   "lL7p4zjFxhQLND24-MEV1lmmyEKObjhhT-ldRWbOEnJLjBHmuc-Iex10bYAZ3NBljo2",
+   "uomVxkrjGYqOqmdm-AtI9MiqFEJjTlSRi-AUNEwwUfrJVP5iaH-uyrsFCrqzC3WcaAa"
 ]
 ```
 
@@ -97,6 +101,8 @@ $this->recovery
 ```
 
 #### Block separator
+
+Usually `-` is used as a block separator, but you can change it with:
 
 ``` php
 $this->recovery->setBlockSeparator('|')->toJson();
