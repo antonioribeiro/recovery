@@ -53,9 +53,19 @@ Should give you
 ``` php
 $this->recovery
      ->setCount(8)     // Generate 8 codes
-     ->setBlocks(7)    // Every code must have 7 blocks
+     ->setBlocks(5)    // Every code must have 7 blocks
      ->setChars(16)    // Each block must have 16 chars
      ->toArray();
+```
+
+Should give you
+
+``` json
+[  
+   "Tu0rFHft8072e6Ev-99TJxD5Zy5q2sv1y-J0W3JnXAFUo1RPz9-8V88cmaKJOHYgXoD-V2H1xISB8nxeX6Pi",
+   "CSB4d6p6dt4Kg5e8-1evc13EWMek37tVK-jk1KodSlcV19Fm7w-TsztesVXRBCa2mRy-5OVY7wGZPx4MZZTD",
+   "Jensx9TXkiVuG2Kl-XeMnFEDtlRmlDDyz-yHOoTrGgy3ADnqTX-cjh31XYg1I6OQ93f-joXh6vAkKGZCixYY"
+]
 ```
 
 #### Numeric or alpha?
