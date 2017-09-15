@@ -1,4 +1,4 @@
-# Recovery
+# Recovery Codes
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/pragmarx/recovery.svg?style=flat-square)](https://packagist.org/packages/pragmarx/recovery)
 [![Software License][ico-license]](LICENSE.md)
@@ -92,7 +92,7 @@ $this->recovery
      ->toArray();
      
 $this->recovery
-     ->uppercase()    // All lower
+     ->uppercase()    // All upper
      ->toArray();
      
 $this->recovery
