@@ -54,34 +54,42 @@ class RecoveryTest extends \PHPUnit\Framework\TestCase
 
         $this->assertCount(3, $result);
 
-        $this->assertCount(7, $result[0]);
-
-        $this->assertTrue(strlen($result[0][0]) == 16);
+        $this->assertTrue(strlen($result[0]) == ((7 * 16) + 6));
     }
 
     public function testNumeric()
     {
-        $result = $this->recovery->numeric()->setCount(3)->setBlocks(7)->setChars(64)->toArray()[0][0];
-        $this->assertFalse(preg_match('/^[a-zA-Z]{64}+$/', $result) == 1);
-        $this->assertTrue(preg_match('/^[0-9]{64}+$/', $result) == 1);
+        $result = $this->recovery->numeric()->setCount(3)->setBlocks(7)->setChars(64)->toArray()[0];
 
-        $result = $this->recovery->alpha()->setCount(3)->setBlocks(7)->setChars(64)->toArray()[0][0];
-        $this->assertTrue(preg_match('/^[a-zA-Z0-9]{64}+$/', $result) == 1);
-        $this->assertFalse(preg_match('/^[0-9]{64}+$/', $result) == 1);
+        $this->assertTrue(preg_match('/^[0-9-]{454}+$/D', $result) == 1);
+
+        $result = $this->recovery->alpha()->setCount(3)->setBlocks(7)->setChars(64)->toArray()[0];
+        $this->assertTrue(preg_match('/^[a-zA-Z0-9-]{454}+$/', $result) == 1);
+        $this->assertFalse(preg_match('/^[0-9-]{454}+$/', $result) == 1);
     }
 
     public function testUpperLower()
     {
-        $result = $this->recovery->uppercase()->setCount(3)->setBlocks(7)->setChars(64)->toArray()[0][0];
-        $this->assertTrue(preg_match('/^[A-Z0-9]{64}+$/', $result) == 1);
-        $this->assertFalse(preg_match('/^[a-z0-9]{64}+$/', $result) == 1);
+        $result = $this->recovery->uppercase()->setCount(3)->setBlocks(3)->setChars(16)->toArray()[0];
 
-        $result = $this->recovery->lowercase()->setCount(3)->setBlocks(7)->setChars(64)->toArray()[0][0];
-        $this->assertFalse(preg_match('/^[A-Z0-9]{64}+$/', $result) == 1);
-        $this->assertTrue(preg_match('/^[a-z0-9]{64}+$/', $result) == 1);
+        $this->assertTrue(preg_match('/^[A-Z0-9-]{50}+$/', $result) == 1);
+        $this->assertFalse(preg_match('/^[a-z0-9]{50}+$/', $result) == 1);
 
-        $result = $this->recovery->mixedcase()->setCount(3)->setBlocks(7)->setChars(64)->toArray()[0][0];
-        $this->assertTrue(preg_match('/^[a-zA-Z0-9]{64}+$/', $result) == 1);
-        $this->assertFalse(preg_match('/^[A-Z0-9]{64}+$/', $result) == 1);
+        $result = $this->recovery->lowercase()->setCount(3)->setBlocks(7)->setChars(16)->toArray()[0];
+        $this->assertFalse(preg_match('/^[A-Z0-9-]{118}+$/', $result) == 1);
+        $this->assertTrue(preg_match('/^[a-z0-9-]{118}+$/', $result) == 1);
+
+        $result = $this->recovery->mixedcase()->setCount(3)->setBlocks(7)->setChars(16)->toArray()[0];
+        $this->assertTrue(preg_match('/^[a-zA-Z0-9-]{118}+$/', $result) == 1);
+        $this->assertFalse(preg_match('/^[A-Z0-9-]{118}+$/', $result) == 1);
+    }
+
+    public function testBlockSeparator()
+    {
+        $result = $this->recovery->setBlockSeparator('|')->toArray()[0];
+
+        $this->assertTrue(preg_match('/^[a-zA-Z0-9|]{21}+$/', $result) == 1);
+        $this->assertFalse(preg_match('/^[a-zA-Z0-9-]{21}+$/', $result) == 1);
+        $this->assertFalse(preg_match('/^[A-Z0-9|]{21}+$/', $result) == 1);
     }
 }

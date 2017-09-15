@@ -14,6 +14,8 @@ class Recovery
 
     protected $random;
 
+    protected $blockSeparator = '-';
+
     /**
      * Recovery constructor.
      *
@@ -57,7 +59,7 @@ class Recovery
             $blocks[] = $this->generateChars();
         }
 
-        return $blocks;
+        return implode($this->blockSeparator, $blocks);
     }
 
     /**
@@ -89,6 +91,19 @@ class Recovery
     public function lowercase($state = true)
     {
         $this->random->lowercase($state);
+
+        return $this;
+    }
+
+    /**
+     * Set the block separator.
+     *
+     * @param string $blockSeparator
+     * @return Recovery
+     */
+    public function setBlockSeparator($blockSeparator)
+    {
+        $this->blockSeparator = $blockSeparator;
 
         return $this;
     }
