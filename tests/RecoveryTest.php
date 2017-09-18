@@ -2,6 +2,8 @@
 
 namespace PragmaRX\Recovery;
 
+use PragmaRX\Random\Random;
+
 class RecoveryTest extends \PHPUnit\Framework\TestCase
 {
     public function setUp()

@@ -2,6 +2,8 @@
 
 namespace PragmaRX\Recovery;
 
+use PragmaRX\Random\Random;
+
 class Recovery
 {
     protected $codes = [];
@@ -69,7 +71,7 @@ class Recovery
      */
     protected function generateChars()
     {
-        return $this->random->str($this->getChars());
+        return $this->random->size($this->getChars())->get();
     }
 
     /**
