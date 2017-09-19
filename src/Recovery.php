@@ -200,7 +200,10 @@ class Recovery
             return call_user_func($this->collectionFunction, $this->toArray());
         }
 
-        throw new \Exception("Function {$this->collectionFunction}() was not found. You probably need to install a suggested package?");
+        throw new \Exception(
+            "Function {$this->collectionFunction}() was not found. " .
+            "You probably need to install a suggested package?"
+        );
     }
 
     /**
