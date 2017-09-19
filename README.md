@@ -1,10 +1,10 @@
 # Recovery Codes
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/pragmarx/recovery.svg?style=flat-square)](https://packagist.org/packages/pragmarx/recovery)
+[![Latest Stable Version](https://img.shields.io/packagist/v/pragmarx/recovery.svg?style=flat-square&update=123)](https://packagist.org/packages/pragmarx/recovery)
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status](https://scrutinizer-ci.com/g/antonioribeiro/recovery/badges/build.png?b=master)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/build-status/master)
-[![Code Coverage](https://scrutinizer-ci.com/g/antonioribeiro/recovery/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/antonioribeiro/recovery/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/antonioribeiro/recovery/badges/build.png?b=master&style=flat-square)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/build-status/master)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/antonioribeiro/recovery.svg?style=flat-square)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/?branch=master)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/antonioribeiro/recovery.svg?style=flat-square)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/?branch=master)
 [![StyleCI](https://styleci.io/repos/103568219/shield)](https://styleci.io/repos/103568219)
 
 Generate recovery/backup codes to provide a way for your users to recover from a lost two factor auth, or any problem with it.
