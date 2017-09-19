@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/pragmarx/recovery.svg?style=flat-square&update=123)](https://packagist.org/packages/pragmarx/recovery)
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status](https://img.shields.io/scrutinizer/build/g/antonioribeiro/recovery.svg&style=flat-square)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/build-status/master)
+[![Build Status](https://img.shields.io/scrutinizer/build/g/antonioribeiro/recovery.svg?style=flat-square)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/build-status/master)
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/antonioribeiro/recovery.svg?style=flat-square)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/?branch=master)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/antonioribeiro/recovery.svg?style=flat-square)](https://scrutinizer-ci.com/g/antonioribeiro/recovery/?branch=master)
 [![StyleCI](https://styleci.io/repos/103568219/shield)](https://styleci.io/repos/103568219)
