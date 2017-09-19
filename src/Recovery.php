@@ -33,6 +33,18 @@ class Recovery
     }
 
     /**
+     * Set to alpha codes.
+     *
+     * @return Recovery
+     */
+    public function alpha()
+    {
+        $this->random->alpha();
+
+        return $this;
+    }
+
+    /**
      * Generate the recovery codes.
      *
      * @return array
@@ -143,18 +155,6 @@ class Recovery
     public function numeric()
     {
         $this->random->numeric();
-
-        return $this;
-    }
-
-    /**
-     * Set to alpha codes.
-     *
-     * @return Recovery
-     */
-    public function alpha()
-    {
-        $this->random->alpha();
 
         return $this;
     }

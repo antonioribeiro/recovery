@@ -4,7 +4,14 @@
     "description": "Create recovery codes for two factor auth",
     "keywords": [
         "pragmarx",
-        "recovery"
+        "2fa",
+        "google2fa",
+        "auth",
+        "two factor auth",
+        "account recovery",
+        "recovery",
+        "recovery codes",
+        "backup codes"
     ],
     "homepage": "https://github.com/antonioribeiro/recovery",
     "license": "MIT",
