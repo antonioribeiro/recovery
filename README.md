@@ -27,6 +27,22 @@ $this->recovery = new PragmaRX\Recovery();
 $this->recovery->toArray();
 ```
 
+#### Collection
+
+If you are using Laravel or install a package like [Collect](https://github.com/tightenco/collect), you can:
+
+``` php
+$this->recovery->toCollection();
+```
+
+You can also define a different collection function to be used:
+
+``` php
+$this->recovery->collectionFunction('alternateCollection');
+
+$this->recovery->setCount(8)->toCollection();
+```
+
 #### Json result
 
 ``` php

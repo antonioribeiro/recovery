@@ -18,6 +18,8 @@ class Recovery
 
     protected $blockSeparator = '-';
 
+    private $collectionFunction = 'collect';
+
     /**
      * Recovery constructor.
      *
@@ -123,6 +125,19 @@ class Recovery
     }
 
     /**
+     * Set the collection function.
+     *
+     * @param string $collectionFunction
+     * @return Recovery
+     */
+    public function collectionFunction($collectionFunction)
+    {
+        $this->collectionFunction = $collectionFunction;
+
+        return $this;
+    }
+
+    /**
      * Set uppercase codes state.
      *
      * @param bool $state
@@ -171,6 +186,21 @@ class Recovery
         }
 
         return $this->getCodes();
+    }
+
+    /**
+     * Get a collection of recovery codes.
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function toCollection()
+    {
+        if (function_exists($this->collectionFunction)) {
+            return call_user_func($this->collectionFunction, $this->toArray());
+        }
+
+        throw new \Exception("Function {$this->collectionFunction}() was not found. You probably need to install a suggested package?");
     }
 
     /**

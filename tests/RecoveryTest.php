@@ -94,4 +94,28 @@ class RecoveryTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(preg_match('/^[a-zA-Z0-9-]{21}+$/', $result) == 1);
         $this->assertFalse(preg_match('/^[A-Z0-9|]{21}+$/', $result) == 1);
     }
+
+    public function testCollection()
+    {
+        $result = $this->recovery->toCollection();
+
+        $this->assertTrue(is_array($result->toArray()));
+
+        $this->assertTrue(
+            is_array(
+                json_decode($result->toJson())
+            )
+        );
+    }
+
+    public function testUnavailableCollection()
+    {
+        $this->expectException(\Exception::class);
+
+        $this->expectExceptionMessage('Function _unavailableFunction() was not found. You probably need to install a suggested package?');
+
+        $this->recovery->collectionFunction('_unavailableFunction');
+
+        $this->recovery->toCollection();
+    }
 }
