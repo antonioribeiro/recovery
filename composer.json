@@ -24,13 +24,13 @@
         }
     ],
     "require": {
-        "php" : "~7.0",
+        "php" : ">=7.0",
         "pragmarx/random" : "~0.1"
     },
     "require-dev": {
         "phpunit/phpunit" : ">=5.4.3",
         "squizlabs/php_codesniffer": "^2.3",
-        "tightenco/collect": "^5"
+        "tightenco/collect": "^5.0"
     },
     "suggest": {
         "tightenco/collect" : "Allows to generate recovery codes as collections"
