@@ -207,9 +207,9 @@ class Recovery
     }
 
     /**
-     * Get a json of recovery codes.
+     * Get recovery codes as json string.
      *
-     * @return array
+     * @return string
      */
     public function toJson()
     {
