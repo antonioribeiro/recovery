@@ -14,7 +14,7 @@ Generate recovery/backup codes to provide a way for your users to recover from a
 Via Composer
 
 ``` bash
-$ composer require pragmarx/recovery
+composer require pragmarx/recovery
 ```
 
 ## Usage
